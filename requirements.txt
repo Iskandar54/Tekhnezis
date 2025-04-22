@@ -1,0 +1,11 @@
+aiogram==3.17.0
+pandas==2.2.3
+openpyxl==3.1.5
+lxml==4.9.2
+requests==2.31.0
+python-dotenv==1.0.1
+SQLAlchemy==2.0.15
+selenium==4.19.0
+selenium-stealth==1.0.6
+webdriver-manager==4.0.1
+aiohttp==3.9.5
