@@ -25,7 +25,6 @@ def save_to_db(df: pd.DataFrame):
     records = df.to_dict(orient='records')
     with SessionLocal() as session:
         for record in records:
-            # Проверяем, есть ли уже такой URL в БД
             exists = session.query(Site).filter(Site.url == record['url']).first()
             if not exists:
                 try:
@@ -36,13 +35,8 @@ def save_to_db(df: pd.DataFrame):
                     print(f"URL уже существует: {record['url']}")
         
 def get_all_sites() -> pd.DataFrame:
-    """
-    Возвращает все сайты в виде DataFrame.
-    """
     with SessionLocal() as session:
         sites = session.query(Site).all()
-        
-        # Преобразуем полученные данные в DataFrame
         data = [
             {
                 'title': site.title,
